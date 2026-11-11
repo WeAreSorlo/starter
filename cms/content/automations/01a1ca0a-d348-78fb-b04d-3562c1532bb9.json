@@ -10,7 +10,7 @@
   "actions": [
     {
       "url": "http://localhost:3000/api/revalidate",
-      "secret": "whsec_5TccrRSz3YhozHAmUQSPfrw3LhlhpGa5",
+      "secret": "",
       "_layout": "webhook",
       "headers": [],
       "timeout": 10

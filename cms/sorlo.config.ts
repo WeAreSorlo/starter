@@ -7,6 +7,11 @@ import nodemailer from 'nodemailer'
 // The Docker image sets it. sorlo dev leaves it unset.
 const production = process.env.NODE_ENV === 'production'
 
+// Where the Preview button goes, while there's a secret for it
+const webUrl = process.env.PREVIEW_SECRET
+  ? setting('WEB_URL', 'http://localhost:3000', "the site's address, which the Preview button opens")
+  : undefined
+
 export default defineConfig({
   database: { url: process.env.DATABASE_URL ?? 'postgres://sorlo:sorlo@localhost:5432/sorlo_starter' },
   // The admin's public address, which emailed links and file URLs start from
@@ -35,7 +40,7 @@ export default defineConfig({
   // Lets the revalidate webhook reach the site on this machine in development
   webhooks: production ? undefined : { allowNetworks: ['127.0.0.0/8', '::1'] },
   // The editor's Preview button, which opens an entry's saved draft on the site, once it has a secret for it
-  previews: process.env.PREVIEW_SECRET
+  previews: webUrl
     ? {
         pages: ({ entry }) => (entry.uri ? preview(entry.uri === 'home' ? '/' : `/${entry.uri}`) : undefined),
         posts: ({ entry }) => (entry.slug ? preview(`/blog/${entry.slug}`) : undefined),
@@ -45,7 +50,7 @@ export default defineConfig({
 
 // The site's preview route, which checks the secret, turns on Next's draft mode and goes to the path
 function preview(path: string) {
-  const url = new URL('/api/preview', process.env.WEB_URL ?? 'http://localhost:3000')
+  const url = new URL('/api/preview', webUrl)
   url.search = new URLSearchParams({ secret: process.env.PREVIEW_SECRET!, path }).toString()
   return url.href
 }
@@ -53,14 +58,27 @@ function preview(path: string) {
 // Email through any SMTP service once SMTP_URL is set. Without it, sorlo dev prints each email here, and production
 // sends none, so the admin shows invite and reset links once rather than the host's logs keeping them.
 function mail(): MailOptions | undefined {
-  const from = process.env.MAIL_FROM ?? 'Sorlo <cms@example.com>'
   if (process.env.SMTP_URL) {
     const transporter = nodemailer.createTransport(process.env.SMTP_URL)
+    const from = setting(
+      'MAIL_FROM',
+      'Sorlo <cms@example.com>',
+      'who emails come from, such as Example <cms@example.com>',
+    )
     return { from, send: (message) => transporter.sendMail(message) }
   }
   if (production) return undefined
   return {
-    from,
+    from: process.env.MAIL_FROM ?? 'Sorlo <cms@example.com>',
     send: async (message) => console.log(`Email to ${message.to.join(', ')}: ${message.subject}\n\n${message.text}\n`),
   }
+}
+
+// A setting that development fills in for itself, which production must be given, so a deploy can't go out with
+// development's
+function setting(name: string, fallback: string, what: string) {
+  const value = process.env[name]
+  if (value) return value
+  if (production) throw new Error(`Set ${name} in the environment: ${what}.`)
+  return fallback
 }

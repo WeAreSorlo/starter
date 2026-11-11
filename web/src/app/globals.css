@@ -185,6 +185,11 @@ figcaption {
   width: 100%;
 }
 
+.honeypot {
+  position: absolute;
+  left: -10000px;
+}
+
 .posts {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));

@@ -22,8 +22,8 @@ npm run dev     # the CMS at http://localhost:4100 and the site at http://localh
 
 `npm run dev` prints a link, `No one has an account yet. Make the first at http://localhost:4100/admin/#/setup/…`. Open it, choose your name, email and password, and you're in the admin. The site at http://localhost:3000 already shows the sample content.
 
-- **Your own Postgres:** point `DATABASE_URL` in `cms/.env` at it before `npm run setup`, which creates the database if it's missing.
-- **Running setup again** stops at the import, since the import only loads the samples into a site with no content. To start over, drop the database, or run `docker compose down -v` to remove the volume of `npm run db`, then `npm run db` and `npm run setup` again.
+- **Your own Postgres:** copy `cms/.env.example` to `cms/.env` and point its `DATABASE_URL` at yours before `npm run setup`, which keeps a `cms/.env` that's there and creates the database if it's missing. `DATABASE_URL` in the environment works too, but then every command needs it.
+- **Running setup again** leaves a site that has content as it is, since the samples only go into a site with none, and makes any key `web/.env.local` is missing. To start over, drop the database, or run `docker compose down -v` to remove the volume of `npm run db`, then `npm run db` and `npm run setup` again, which makes the keys afresh.
 - **Another port for the site,** such as when something else has 3000, is `npm run dev -w web -- -p 3001` with `npm run dev -w cms` in another terminal. Change `WEB_URL` in `cms/.env` to match, and the URL of the "Revalidate the site" automation in the admin.
 
 ## What's where
@@ -102,7 +102,7 @@ A change to the form's fields in the admin shows on the site within a few minute
 
 Without `SMTP_URL`, `sorlo dev` prints each email in its terminal, and production sends none, so the admin shows invite and reset links once, to pass on, rather than the host's logs keeping them.
 
-The sample's webhook secret is the same for everyone who uses the starter, so production's automation needs a new one, as [Deploying](#the-cms) says.
+`cms/content` holds no signing secret for "Revalidate the site", so setup gives the automation it imports a secret of the site's own, and writes it to `web/.env.local` as `SORLO_WEBHOOK_SECRET`.
 
 ## Deploying
 
@@ -119,15 +119,16 @@ docker build -f cms/Dockerfile -t example-cms .
 - **Each deploy runs the migrations** before it takes traffic, from the new image, such as in Fly's `release_command` or Render's pre-deploy command: `../node_modules/.bin/sorlo migrate`. It exits 1 when a migration has a TODO left or fails, which stops the deploy.
 - **The host provides** Postgres 17 as `DATABASE_URL`, HTTPS in front that sends `X-Forwarded-Proto`, `GET /health` as its health check, and a stop grace of 40 seconds, so a webhook in flight can finish. The CMS's [deploying page](https://github.com/WeAreSorlo/cms/blob/main/docs/deploying.md) has the details, and what to do behind a CDN.
 - **Media goes to a bucket** once `S3_BUCKET` is set, with `S3_REGION`, `S3_KEY` and `S3_SECRET`, and `S3_ENDPOINT` for R2, MinIO and other services that speak S3. The bucket stays private, since the CMS serves every file itself. Without a bucket, files go to `/site/cms/storage`, which needs a volume and limits the CMS to one instance.
-- **The environment** also holds `APP_URL`, `WEB_URL`, `PREVIEW_SECRET` and, for email, `SMTP_URL` and `MAIL_FROM`.
+- **The environment** also holds `APP_URL`, `PREVIEW_SECRET` with `WEB_URL`, and for email, `SMTP_URL` with `MAIL_FROM`. In production, the CMS won't start with `PREVIEW_SECRET` and no `WEB_URL`, or `SMTP_URL` and no `MAIL_FROM`, rather than use development's.
 - **The first account** is made with the link the server prints in its log, while nobody has one.
 
-Then, in the admin:
+Then:
 
-1. On **API keys**, make the site's two keys: one with no permissions, for `SORLO_TOKEN`, and one with Preview, for `SORLO_PREVIEW_TOKEN`.
-2. In **Automations**, change "Revalidate the site" to call your site's `/api/revalidate`, empty its signing secret and save. Saving makes a new secret, for the site's `SORLO_WEBHOOK_SECRET`.
-
-To start production with the sample content, run `../node_modules/.bin/sorlo import` once from the image, with the bucket's settings, or the volume the server uses, so the files land where it reads them.
+1. **For the sample content,** run `../node_modules/.bin/sorlo import` once from the image, with the bucket's settings, or the volume the server uses, so its files land where the server reads them. Its two automations need changing in step 3.
+2. **On the admin's API keys page,** make the site's two keys: one with no permissions, for `SORLO_TOKEN`, and one with Preview, for `SORLO_PREVIEW_TOKEN`.
+3. **On the Automations page,** give the site a webhook that revalidates it:
+   - With the samples, "Revalidate the site" calls `http://localhost:3000`, which production's CMS refuses to call. Change its URL to `https://<your site>/api/revalidate`, save, and copy its signing secret to the site's `SORLO_WEBHOOK_SECRET`. Change "Email contact submissions" to send to your address rather than `hello@example.com`, or delete it.
+   - Without them, make one: when Entry published, Entry unpublished and File updated, call a webhook at `https://<your site>/api/revalidate`, with its signing secret left empty, so saving makes one for `SORLO_WEBHOOK_SECRET`.
 
 ### The site
 

@@ -12,6 +12,7 @@ import { useRef, useState } from 'react'
 // A form's fields rendered with Sorlo Forms, which the CMS checks again when it takes the submission
 export function CmsForm({ form, url }: { form: SorloForm; url: string }) {
   const ref = useRef<FormHandle>(null)
+  const honeypot = useRef<HTMLInputElement>(null)
   const [values, setValues] = useState<Record<string, unknown>>({})
   const [state, setState] = useState<'ready' | 'sending' | 'sent'>('ready')
   const [problem, setProblem] = useState('')
@@ -22,7 +23,9 @@ export function CmsForm({ form, url }: { form: SorloForm; url: string }) {
     setProblem('')
     try {
       // Straight from the browser with no key, so each visitor counts against the CMS's rate limit alone
-      await createClient({ url }).form(form.id).submit(values)
+      await createClient({ url })
+        .form(form.id)
+        .submit({ ...values, _website: honeypot.current?.value ?? '' })
       setState('sent')
     } catch (error) {
       setState('ready')
@@ -37,6 +40,13 @@ export function CmsForm({ form, url }: { form: SorloForm; url: string }) {
   return (
     <div className='cms-form'>
       <Form ref={ref} className='sorlo-theme-default' schema={form.fields} values={values} onValuesChange={setValues} />
+      {/* The honeypot, as the CMS's own embed has it: people never see it, so the CMS keeps a submission that fills
+          it in as spam */}
+      <div className='honeypot' aria-hidden='true'>
+        <label>
+          Leave this empty <input ref={honeypot} name='_website' tabIndex={-1} autoComplete='off' />
+        </label>
+      </div>
       {problem && <p role='alert'>{problem}</p>}
       <button type='button' className='button' onClick={send} disabled={state === 'sending'}>
         {state === 'sending' ? 'Sending…' : 'Send'}
