@@ -147,3 +147,7 @@ npm run lint          # ESLint, with Next's rules
 npm run format        # Prettier
 npm run types -- --check  # with npm run dev running: fails when web/src/sorlo-types.d.ts is out of date
 ```
+
+CI, in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), runs all four on every push to `main` and every pull request: `npm ci` and the first three, then `npm run setup` against a Postgres 17 service, `npm run start -w cms` in the background, the types check, and a build of `web/` against the CMS, with the sample content. Setup makes the secrets and keys, so the repo needs none.
+
+[Dependabot](.github/dependabot.yml) offers updates weekly, with Sorlo's packages together in one pull request, so each release of Sorlo arrives as one change for CI to check.

@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    # The database cms/.env.example names, as compose.yaml makes it
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: sorlo
+          POSTGRES_PASSWORD: sorlo
+          POSTGRES_DB: sorlo_starter
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U sorlo -d sorlo_starter"
+          --health-interval 1s
+          --health-retries 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      - run: npm run lint
+
+      - run: npm run format
+
+      # The env files, the migrations, the sample content and the site's keys, with secrets it makes itself
+      - run: npm run setup
+
+      # The server production runs, left running for the steps below, with its log for the last step
+      - id: cms
+        run: npm run start -w cms > cms.log 2>&1 &
+
+      - run: curl --fail --silent --show-error --retry 60 --retry-delay 1 --retry-all-errors http://localhost:4100/health
+
+      - run: npm run types -- --check
+
+      # Next renders the pages ahead of time, reading the CMS
+      - run: npm run build -w web
+
+      - if: failure() && steps.cms.outcome == 'success'
+        run: cat cms.log

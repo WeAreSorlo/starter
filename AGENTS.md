@@ -43,3 +43,5 @@ npm run format     # npm run format:fix to fix it
 ```
 
 With `npm run dev` running, `npm run types -- --check` fails when `web/src/sorlo-types.d.ts` is out of date.
+
+CI runs all four on every push to `main` and every pull request, with the CMS on a fresh database from `npm run setup`, then builds `web/` against it.
