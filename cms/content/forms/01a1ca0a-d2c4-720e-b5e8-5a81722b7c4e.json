@@ -1,0 +1,38 @@
+{
+  "id": "01a1ca0a-d2c4-720e-b5e8-5a81722b7c4e",
+  "name": "contact",
+  "label": "Contact",
+  "open": true,
+  "firstOpenedAt": "2026-11-11T09:57:49.383Z",
+  "fields": [
+    {
+      "id": "fld_cn4me8rq",
+      "name": "name",
+      "type": "text",
+      "label": "Name",
+      "width": 50,
+      "required": true
+    },
+    {
+      "id": "fld_em2il7xk",
+      "name": "email",
+      "type": "email",
+      "label": "Email",
+      "width": 50,
+      "required": true
+    },
+    {
+      "id": "fld_ms9g3e5w",
+      "name": "message",
+      "type": "textarea",
+      "label": "Message",
+      "options": {
+        "rows": 5,
+        "maxLength": 5000
+      },
+      "required": true
+    }
+  ],
+  "createdAt": "2026-11-11T09:57:49.383Z",
+  "updatedAt": "2026-11-11T09:57:49.383Z"
+}

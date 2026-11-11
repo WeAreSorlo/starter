@@ -1,0 +1,447 @@
+{
+  "authors": {
+    "id": "typ_dadc5lgv",
+    "name": "authors",
+    "label": "Authors",
+    "singular": "Author",
+    "structure": "collection",
+    "icon": "user",
+    "titleField": "name",
+    "listColumns": [
+      "name",
+      "avatar"
+    ],
+    "fields": [
+      {
+        "id": "fld_h4mj0wt6",
+        "type": "text",
+        "name": "name",
+        "label": "Name",
+        "required": true
+      },
+      {
+        "id": "fld_70y9d0jk",
+        "type": "textarea",
+        "name": "bio",
+        "label": "Bio",
+        "options": {
+          "rows": 3
+        }
+      },
+      {
+        "id": "fld_7ptx8y6k",
+        "type": "media",
+        "name": "avatar",
+        "label": "Avatar",
+        "options": {
+          "maximum": 1,
+          "types": [
+            "image/*"
+          ]
+        }
+      }
+    ]
+  },
+  "pages": {
+    "id": "typ_9e7qa8xg",
+    "name": "pages",
+    "label": "Pages",
+    "singular": "Page",
+    "structure": "hierarchical",
+    "icon": "layout",
+    "titleField": "title",
+    "slugField": "slug",
+    "listColumns": [
+      "title"
+    ],
+    "fields": [
+      {
+        "id": "fld_xa1v54yn",
+        "type": "text",
+        "name": "title",
+        "label": "Title",
+        "required": true
+      },
+      {
+        "id": "fld_m3suexng",
+        "type": "identifier",
+        "name": "slug",
+        "label": "Slug",
+        "instructions": "The home page's is home, which the site serves at /.",
+        "required": true,
+        "options": {
+          "source": "title"
+        }
+      },
+      {
+        "id": "fld_9f4d00rt",
+        "type": "flexible",
+        "name": "blocks",
+        "label": "Blocks",
+        "options": {
+          "layouts": [
+            {
+              "id": "lay_u23ui660",
+              "name": "hero",
+              "label": "Hero",
+              "fields": [
+                {
+                  "id": "fld_b1vocmag",
+                  "type": "text",
+                  "name": "heading",
+                  "label": "Heading",
+                  "required": true
+                },
+                {
+                  "id": "fld_rpdzczo4",
+                  "type": "textarea",
+                  "name": "text",
+                  "label": "Text",
+                  "options": {
+                    "rows": 2
+                  }
+                },
+                {
+                  "id": "fld_p7zj2vl3",
+                  "type": "media",
+                  "name": "image",
+                  "label": "Image",
+                  "options": {
+                    "maximum": 1,
+                    "types": [
+                      "image/*"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lay_sc0j7d3y",
+              "name": "text",
+              "label": "Text",
+              "fields": [
+                {
+                  "id": "fld_g43m61sb",
+                  "type": "textarea",
+                  "name": "body",
+                  "label": "Body",
+                  "instructions": "Markdown, such as **bold**, [a link](/blog) and ## for a heading.",
+                  "required": true,
+                  "options": {
+                    "rows": 8
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lay_agqpe5b6",
+              "name": "image",
+              "label": "Image",
+              "fields": [
+                {
+                  "id": "fld_v3uyypfn",
+                  "type": "media",
+                  "name": "image",
+                  "label": "Image",
+                  "instructions": "Its alt text and caption come from the media library.",
+                  "required": true,
+                  "options": {
+                    "maximum": 1,
+                    "types": [
+                      "image/*"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lay_5x2v629r",
+              "name": "call_to_action",
+              "label": "Call to action",
+              "fields": [
+                {
+                  "id": "fld_wi92v8go",
+                  "type": "text",
+                  "name": "heading",
+                  "label": "Heading",
+                  "required": true
+                },
+                {
+                  "id": "fld_mw4409ig",
+                  "type": "textarea",
+                  "name": "text",
+                  "label": "Text",
+                  "options": {
+                    "rows": 2
+                  }
+                },
+                {
+                  "id": "fld_fati57z8",
+                  "type": "text",
+                  "name": "label",
+                  "label": "Button label",
+                  "required": true,
+                  "width": 50
+                },
+                {
+                  "id": "fld_9xiir7vj",
+                  "type": "text",
+                  "name": "link",
+                  "label": "Button link",
+                  "instructions": "A path on the site, such as /contact, or a full address.",
+                  "required": true,
+                  "width": 50
+                }
+              ]
+            },
+            {
+              "id": "lay_rzqjfjm2",
+              "name": "form",
+              "label": "Form",
+              "fields": [
+                {
+                  "id": "fld_ung0jh5p",
+                  "type": "text",
+                  "name": "heading",
+                  "label": "Heading"
+                },
+                {
+                  "id": "fld_t9jvufi9",
+                  "type": "form",
+                  "name": "form",
+                  "label": "Form",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "fld_seucvlbc",
+        "type": "group",
+        "name": "seo",
+        "label": "SEO",
+        "options": {
+          "group": "grp_2xw38h7j",
+          "fields": [
+            {
+              "id": "fld_seucvlbc.fld_ncy4ceye",
+              "type": "text",
+              "name": "title",
+              "label": "Title",
+              "instructions": "For search results and the browser's tab. The title, if it's empty.",
+              "options": {
+                "maxLength": 60
+              }
+            },
+            {
+              "id": "fld_seucvlbc.fld_qyvn3wjt",
+              "type": "textarea",
+              "name": "description",
+              "label": "Description",
+              "instructions": "For search results and links shared on other sites.",
+              "options": {
+                "rows": 2,
+                "maxLength": 160
+              }
+            },
+            {
+              "id": "fld_seucvlbc.fld_zmaq5eui",
+              "type": "media",
+              "name": "image",
+              "label": "Share image",
+              "instructions": "For links shared on other sites.",
+              "options": {
+                "maximum": 1,
+                "types": [
+                  "image/*"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "posts": {
+    "id": "typ_kggwxdcq",
+    "name": "posts",
+    "label": "Posts",
+    "singular": "Post",
+    "structure": "collection",
+    "icon": "newspaper",
+    "titleField": "title",
+    "slugField": "slug",
+    "listColumns": [
+      "title",
+      "published_at",
+      "author"
+    ],
+    "fields": [
+      {
+        "id": "fld_ys1twi8l",
+        "type": "text",
+        "name": "title",
+        "label": "Title",
+        "required": true
+      },
+      {
+        "id": "fld_lddo4zcn",
+        "type": "identifier",
+        "name": "slug",
+        "label": "Slug",
+        "required": true,
+        "options": {
+          "source": "title"
+        }
+      },
+      {
+        "id": "fld_qg21pdqk",
+        "type": "date",
+        "name": "published_at",
+        "label": "Published",
+        "required": true,
+        "width": 50
+      },
+      {
+        "id": "fld_2ek337wc",
+        "type": "relationship",
+        "name": "author",
+        "label": "Author",
+        "width": 50,
+        "options": {
+          "maximum": 1,
+          "types": [
+            "typ_dadc5lgv"
+          ]
+        }
+      },
+      {
+        "id": "fld_b8xmxymt",
+        "type": "media",
+        "name": "cover",
+        "label": "Cover image",
+        "options": {
+          "maximum": 1,
+          "types": [
+            "image/*"
+          ]
+        }
+      },
+      {
+        "id": "fld_s3roy8jb",
+        "type": "textarea",
+        "name": "excerpt",
+        "label": "Excerpt",
+        "instructions": "For the blog's list, and the description in search results when SEO's is empty.",
+        "options": {
+          "rows": 2,
+          "maxLength": 300
+        }
+      },
+      {
+        "id": "fld_n0wtozv1",
+        "type": "textarea",
+        "name": "body",
+        "label": "Body",
+        "instructions": "Markdown, such as **bold**, [a link](https://example.com) and ## for a heading.",
+        "options": {
+          "rows": 16
+        }
+      },
+      {
+        "id": "fld_umn5z2j0",
+        "type": "group",
+        "name": "seo",
+        "label": "SEO",
+        "options": {
+          "group": "grp_2xw38h7j",
+          "fields": [
+            {
+              "id": "fld_umn5z2j0.fld_ncy4ceye",
+              "type": "text",
+              "name": "title",
+              "label": "Title",
+              "instructions": "For search results and the browser's tab. The title, if it's empty.",
+              "options": {
+                "maxLength": 60
+              }
+            },
+            {
+              "id": "fld_umn5z2j0.fld_qyvn3wjt",
+              "type": "textarea",
+              "name": "description",
+              "label": "Description",
+              "instructions": "For search results and links shared on other sites.",
+              "options": {
+                "rows": 2,
+                "maxLength": 160
+              }
+            },
+            {
+              "id": "fld_umn5z2j0.fld_zmaq5eui",
+              "type": "media",
+              "name": "image",
+              "label": "Share image",
+              "instructions": "For links shared on other sites.",
+              "options": {
+                "maximum": 1,
+                "types": [
+                  "image/*"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "settings": {
+    "id": "typ_62dddtoa",
+    "name": "settings",
+    "label": "Settings",
+    "structure": "singleton",
+    "drafts": false,
+    "icon": "settings",
+    "titleField": "name",
+    "fields": [
+      {
+        "id": "fld_l265yaai",
+        "type": "text",
+        "name": "name",
+        "label": "Site name",
+        "instructions": "In the header, and each tab's title after the page's.",
+        "required": true
+      },
+      {
+        "id": "fld_p12ovemc",
+        "type": "repeater",
+        "name": "navigation",
+        "label": "Navigation",
+        "options": {
+          "maximum": 8,
+          "fields": [
+            {
+              "id": "fld_whbbibho",
+              "type": "text",
+              "name": "label",
+              "label": "Label",
+              "required": true,
+              "width": 50
+            },
+            {
+              "id": "fld_0b8oac9d",
+              "type": "text",
+              "name": "link",
+              "label": "Link",
+              "instructions": "A path on the site, such as /blog, or a full address.",
+              "required": true,
+              "width": 50
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

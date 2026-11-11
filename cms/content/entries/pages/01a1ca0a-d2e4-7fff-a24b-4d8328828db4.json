@@ -1,0 +1,33 @@
+{
+  "id": "01a1ca0a-d2e4-7fff-a24b-4d8328828db4",
+  "parentId": null,
+  "position": 1,
+  "slug": "about",
+  "uri": "about",
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": "What the Sorlo starter is, and what it shows."
+    },
+    "slug": "about",
+    "title": "About",
+    "blocks": [
+      {
+        "body": "## About this site\n\nThe starter is a small site that uses every part of Sorlo: pages made of blocks, posts with authors, media, a form, previews and an automation. Keep what you need, and delete the rest.",
+        "_layout": "text"
+      },
+      {
+        "image": "01a1ca0a-d208-70d8-b7c4-428ec4ef259c",
+        "_layout": "image"
+      }
+    ]
+  },
+  "createdAt": "2026-11-11T09:57:49.414Z",
+  "updatedAt": "2026-11-11T09:57:49.414Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.414Z"
+  }
+}

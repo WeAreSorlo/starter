@@ -1,0 +1,28 @@
+{
+  "id": "01a1ca0a-d329-7be4-b1a5-7d3f6660c6b5",
+  "parentId": null,
+  "position": null,
+  "slug": "welcome-to-your-sorlo-site",
+  "uri": null,
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": ""
+    },
+    "body": "This site is the Sorlo starter’s sample content. Everything you see comes from the CMS, through its SDK, and you can change all of it in the admin.\n\n## Where things live\n\n- **The content model** is in `cms/schema`: pages, posts, authors and settings, with an SEO group that pages and posts share.\n- **The content** is in the CMS’s database. The starter’s copy is in `cms/content`, which `npm run setup` imported.\n- **The site** is in `web/`, a Next.js app that reads the CMS with the typed SDK.\n\n## What to change first\n\nOpen **Settings** in the admin and give the site its name, then edit the **Home** page. Your changes stay a draft until you publish them, as the next post explains.",
+    "slug": "welcome-to-your-sorlo-site",
+    "cover": "01a1ca0a-d21a-7cd8-ae39-d0433e472154",
+    "title": "Welcome to your Sorlo site",
+    "author": "01a1ca0a-d29c-7959-bb3e-e176b662c424",
+    "excerpt": "What’s in the starter, where everything lives, and what to change first.",
+    "published_at": "2026-11-11"
+  },
+  "createdAt": "2026-11-11T09:57:49.483Z",
+  "updatedAt": "2026-11-11T09:57:49.483Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.483Z"
+  }
+}

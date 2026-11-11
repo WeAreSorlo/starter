@@ -1,0 +1,28 @@
+{
+  "id": "01a1ca0a-d31c-716f-acc8-efe10757d642",
+  "parentId": null,
+  "position": null,
+  "slug": "drafts-publishing-and-the-site",
+  "uri": null,
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": ""
+    },
+    "body": "In the admin, **Save draft** keeps your changes without changing the site, and **Publish** puts the draft live. An entry’s badge says whether it’s a draft, published, or changed since it was published.\n\n## How the site finds out\n\nThe site caches what it reads from the CMS. Publishing anything runs the **Revalidate the site** automation, which calls the site’s `/api/revalidate` with a signed request, and the site reads the CMS again on the next visit.\n\n## Settings\n\nSettings have no drafts, so every save goes live. That suits a site’s name and navigation, which editors expect to change at once.",
+    "slug": "drafts-publishing-and-the-site",
+    "cover": "01a1ca0a-d22c-7291-9cc2-8782c1d5161f",
+    "title": "Drafts, publishing and the site",
+    "author": "01a1ca0a-d2b1-7cb2-9b1f-92ffdcf35565",
+    "excerpt": "Save keeps a draft, Publish puts it live, and the site updates itself.",
+    "published_at": "2026-11-10"
+  },
+  "createdAt": "2026-11-11T09:57:49.470Z",
+  "updatedAt": "2026-11-11T09:57:49.470Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.470Z"
+  }
+}

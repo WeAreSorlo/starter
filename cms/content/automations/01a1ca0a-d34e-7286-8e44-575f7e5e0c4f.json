@@ -1,0 +1,32 @@
+{
+  "id": "01a1ca0a-d34e-7286-8e44-575f7e5e0c4f",
+  "name": "Email contact submissions",
+  "triggers": [
+    "submission.created"
+  ],
+  "conditions": [
+    {
+      "rules": [
+        {
+          "field": "form.name",
+          "value": "contact",
+          "operator": "equals"
+        },
+        {
+          "field": "submission.spam",
+          "value": "false",
+          "operator": "equals"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "to": "hello@example.com",
+      "_layout": "email",
+      "subject": ""
+    }
+  ],
+  "createdAt": "2026-11-11T09:57:49.522Z",
+  "updatedAt": "2026-11-11T09:57:49.522Z"
+}

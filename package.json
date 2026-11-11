@@ -1,0 +1,33 @@
+{
+  "name": "sorlo-starter",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "cms",
+    "web"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "db": "docker compose up -d --wait",
+    "setup": "node scripts/setup.ts",
+    "dev": "concurrently --names cms,web --prefix-colors blue,magenta --kill-others-on-fail \"npm run dev -w cms\" \"npm run dev -w web\"",
+    "types": "npm run types -w web --",
+    "typecheck": "tsc && npm run typecheck --workspaces",
+    "lint": "eslint",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
+    "concurrently": "^10.0.7",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
+    "pg": "^8.23.1",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.3"
+  }
+}

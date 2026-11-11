@@ -1,0 +1,21 @@
+{
+  "id": "01a1ca0a-d348-78fb-b04d-3562c1532bb9",
+  "name": "Revalidate the site",
+  "triggers": [
+    "entry.published",
+    "entry.unpublished",
+    "media.updated"
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "url": "http://localhost:3000/api/revalidate",
+      "secret": "whsec_5TccrRSz3YhozHAmUQSPfrw3LhlhpGa5",
+      "_layout": "webhook",
+      "headers": [],
+      "timeout": 10
+    }
+  ],
+  "createdAt": "2026-11-11T09:57:49.516Z",
+  "updatedAt": "2026-11-11T09:57:49.516Z"
+}

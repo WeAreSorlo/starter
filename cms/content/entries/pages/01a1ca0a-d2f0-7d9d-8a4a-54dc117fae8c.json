@@ -1,0 +1,29 @@
+{
+  "id": "01a1ca0a-d2f0-7d9d-8a4a-54dc117fae8c",
+  "parentId": "01a1ca0a-d2e4-7fff-a24b-4d8328828db4",
+  "position": 0,
+  "slug": "team",
+  "uri": "about/team",
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": "Who writes the starter’s posts."
+    },
+    "slug": "team",
+    "title": "Team",
+    "blocks": [
+      {
+        "body": "## The team\n\nThis page sits under About, so its address is `/about/team`. Pages nest as deep as you like, and each one’s address follows its parents’ slugs.\n\n**Robin Hale** writes about publishing.\n\n**Sam Okafor** builds the frontend.",
+        "_layout": "text"
+      }
+    ]
+  },
+  "createdAt": "2026-11-11T09:57:49.426Z",
+  "updatedAt": "2026-11-11T09:57:49.426Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.426Z"
+  }
+}

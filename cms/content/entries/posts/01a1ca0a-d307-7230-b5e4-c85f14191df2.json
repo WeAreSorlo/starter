@@ -1,0 +1,28 @@
+{
+  "id": "01a1ca0a-d307-7230-b5e4-c85f14191df2",
+  "parentId": null,
+  "position": null,
+  "slug": "forms-and-automations",
+  "uri": null,
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": ""
+    },
+    "body": "The [contact form](/contact) isn’t written into the site. It’s the **Contact** form on the admin’s Forms page, and the site fetches its fields from the CMS and renders them with Sorlo Forms, so a change to the form shows on the site at once.\n\n## Submissions\n\nThe browser sends each submission straight to the CMS, which checks it against the form’s fields and keeps it in the form’s inbox. A honeypot field and a rate limit keep most spam out.\n\n## Automations\n\nAn automation runs actions when something changes. The starter has two:\n\n- **Email contact submissions** emails each one that isn’t spam. In development, the CMS prints the email in its terminal instead of sending it.\n- **Revalidate the site** calls the site’s `/api/revalidate` whenever something is published, which the post on publishing explains.",
+    "slug": "forms-and-automations",
+    "cover": "01a1ca0a-d253-72cc-a844-4f2941d10ecd",
+    "title": "Forms and automations",
+    "author": "01a1ca0a-d2b1-7cb2-9b1f-92ffdcf35565",
+    "excerpt": "The contact form comes from the CMS, and its submissions land in the admin’s inbox.",
+    "published_at": "2026-11-08"
+  },
+  "createdAt": "2026-11-11T09:57:49.449Z",
+  "updatedAt": "2026-11-11T09:57:49.449Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.449Z"
+  }
+}

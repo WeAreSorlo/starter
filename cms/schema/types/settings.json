@@ -1,0 +1,40 @@
+{
+  "id": "typ_62dddtoa",
+  "name": "settings",
+  "label": "Settings",
+  "structure": "singleton",
+  "drafts": false,
+  "icon": "settings",
+  "titleField": "name",
+  "fields": [
+    {
+      "id": "fld_l265yaai",
+      "type": "text",
+      "name": "name",
+      "label": "Site name",
+      "instructions": "In the header, and each tab's title after the page's.",
+      "required": true
+    },
+    {
+      "id": "fld_p12ovemc",
+      "type": "repeater",
+      "name": "navigation",
+      "label": "Navigation",
+      "options": {
+        "maximum": 8,
+        "fields": [
+          { "id": "fld_whbbibho", "type": "text", "name": "label", "label": "Label", "required": true, "width": 50 },
+          {
+            "id": "fld_0b8oac9d",
+            "type": "text",
+            "name": "link",
+            "label": "Link",
+            "instructions": "A path on the site, such as /blog, or a full address.",
+            "required": true,
+            "width": 50
+          }
+        ]
+      }
+    }
+  ]
+}

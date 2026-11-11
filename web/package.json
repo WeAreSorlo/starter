@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "types": "node --env-file-if-exists=.env.local ../node_modules/@sorlo/sdk/bin/sorlo.js types pull",
+    "typecheck": "next typegen && tsc"
+  },
+  "dependencies": {
+    "@sorlo/forms": "file:../../core",
+    "@sorlo/sdk": "file:../../cms/packages/sdk",
+    "next": "16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "standardwebhooks": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

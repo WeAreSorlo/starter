@@ -1,0 +1,26 @@
+{
+  "id": "01a1ca0a-d332-7619-941d-12915aaac243",
+  "parentId": null,
+  "position": null,
+  "slug": "this-post-is-a-draft",
+  "uri": null,
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": ""
+    },
+    "body": "This post has never been published, so the blog doesn’t list it and its address is a 404 for everyone else.\n\nOpen it in the admin and click **Preview** to see it here. Publish it, and it joins the blog.",
+    "slug": "this-post-is-a-draft",
+    "cover": "01a1ca0a-d264-7532-a5da-cd9ef12231e8",
+    "title": "This post is a draft",
+    "author": "01a1ca0a-d29c-7959-bb3e-e176b662c424",
+    "excerpt": "It isn’t live, so only Preview shows it.",
+    "published_at": "2026-11-12"
+  },
+  "createdAt": "2026-11-11T09:57:49.493Z",
+  "updatedAt": "2026-11-11T09:57:49.493Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": null
+}

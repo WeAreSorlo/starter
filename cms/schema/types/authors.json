@@ -1,0 +1,21 @@
+{
+  "id": "typ_dadc5lgv",
+  "name": "authors",
+  "label": "Authors",
+  "singular": "Author",
+  "structure": "collection",
+  "icon": "user",
+  "titleField": "name",
+  "listColumns": ["name", "avatar"],
+  "fields": [
+    { "id": "fld_h4mj0wt6", "type": "text", "name": "name", "label": "Name", "required": true },
+    { "id": "fld_70y9d0jk", "type": "textarea", "name": "bio", "label": "Bio", "options": { "rows": 3 } },
+    {
+      "id": "fld_7ptx8y6k",
+      "type": "media",
+      "name": "avatar",
+      "label": "Avatar",
+      "options": { "maximum": 1, "types": ["image/*"] }
+    }
+  ]
+}

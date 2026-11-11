@@ -1,0 +1,20 @@
+# Postgres for development: `npm run db` starts it, with the starter's database
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: sorlo
+      POSTGRES_PASSWORD: sorlo
+      POSTGRES_DB: sorlo_starter
+    ports:
+      # Development credentials, so only listen on this machine
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'sorlo', '-d', 'sorlo_starter']
+      interval: 1s
+      retries: 30
+
+volumes:
+  postgres:

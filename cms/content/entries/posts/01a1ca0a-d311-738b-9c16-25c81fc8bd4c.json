@@ -1,0 +1,28 @@
+{
+  "id": "01a1ca0a-d311-738b-9c16-25c81fc8bd4c",
+  "parentId": null,
+  "position": null,
+  "slug": "previewing-a-draft",
+  "uri": null,
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": ""
+    },
+    "body": "Every page and post in the admin has a **Preview** button beside Save draft. It opens the entry’s saved draft on the site, in a tab of its own.\n\n## How it works\n\n1. The CMS works out the draft’s address on the site, from `previews` in `cms/sorlo.config.ts`, with a secret the site knows.\n2. The site’s `/api/preview` checks the secret and turns on Next’s draft mode.\n3. While draft mode is on, the site reads drafts with a preview key, and a bar at the top says so. **Exit preview** turns it off.\n\nPreview shows what’s saved, so save your draft first.",
+    "slug": "previewing-a-draft",
+    "cover": "01a1ca0a-d242-7fec-b839-941b118f4226",
+    "title": "Previewing a draft",
+    "author": "01a1ca0a-d29c-7959-bb3e-e176b662c424",
+    "excerpt": "The Preview button opens your saved draft on the site, before anyone else sees it.",
+    "published_at": "2026-11-09"
+  },
+  "createdAt": "2026-11-11T09:57:49.460Z",
+  "updatedAt": "2026-11-11T09:57:49.460Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.460Z"
+  }
+}

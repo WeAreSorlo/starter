@@ -1,0 +1,7 @@
+package-lock.json
+cms/content
+cms/migrations/.snapshot.json
+cms/storage
+web/.next
+web/next-env.d.ts
+**/sorlo-types.d.ts

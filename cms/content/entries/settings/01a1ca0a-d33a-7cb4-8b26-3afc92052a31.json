@@ -1,0 +1,35 @@
+{
+  "id": "01a1ca0a-d33a-7cb4-8b26-3afc92052a31",
+  "parentId": null,
+  "position": null,
+  "slug": null,
+  "uri": null,
+  "values": {
+    "name": "Sorlo Starter",
+    "navigation": [
+      {
+        "link": "/",
+        "label": "Home"
+      },
+      {
+        "link": "/blog",
+        "label": "Blog"
+      },
+      {
+        "link": "/about",
+        "label": "About"
+      },
+      {
+        "link": "/contact",
+        "label": "Contact"
+      }
+    ]
+  },
+  "createdAt": "2026-11-11T09:57:49.500Z",
+  "updatedAt": "2026-11-11T09:57:49.506Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.506Z"
+  }
+}

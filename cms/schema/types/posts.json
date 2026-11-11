@@ -1,0 +1,62 @@
+{
+  "id": "typ_kggwxdcq",
+  "name": "posts",
+  "label": "Posts",
+  "singular": "Post",
+  "structure": "collection",
+  "icon": "newspaper",
+  "titleField": "title",
+  "slugField": "slug",
+  "listColumns": ["title", "published_at", "author"],
+  "fields": [
+    { "id": "fld_ys1twi8l", "type": "text", "name": "title", "label": "Title", "required": true },
+    {
+      "id": "fld_lddo4zcn",
+      "type": "identifier",
+      "name": "slug",
+      "label": "Slug",
+      "required": true,
+      "options": { "source": "title" }
+    },
+    {
+      "id": "fld_qg21pdqk",
+      "type": "date",
+      "name": "published_at",
+      "label": "Published",
+      "required": true,
+      "width": 50
+    },
+    {
+      "id": "fld_2ek337wc",
+      "type": "relationship",
+      "name": "author",
+      "label": "Author",
+      "width": 50,
+      "options": { "maximum": 1, "types": ["typ_dadc5lgv"] }
+    },
+    {
+      "id": "fld_b8xmxymt",
+      "type": "media",
+      "name": "cover",
+      "label": "Cover image",
+      "options": { "maximum": 1, "types": ["image/*"] }
+    },
+    {
+      "id": "fld_s3roy8jb",
+      "type": "textarea",
+      "name": "excerpt",
+      "label": "Excerpt",
+      "instructions": "For the blog's list, and the description in search results when SEO's is empty.",
+      "options": { "rows": 2, "maxLength": 300 }
+    },
+    {
+      "id": "fld_n0wtozv1",
+      "type": "textarea",
+      "name": "body",
+      "label": "Body",
+      "instructions": "Markdown, such as **bold**, [a link](https://example.com) and ## for a heading.",
+      "options": { "rows": 16 }
+    },
+    { "id": "fld_umn5z2j0", "type": "shared", "name": "seo", "label": "SEO", "options": { "group": "grp_2xw38h7j" } }
+  ]
+}

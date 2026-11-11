@@ -1,0 +1,34 @@
+{
+  "id": "01a1ca0a-d2fb-70a9-a9f7-a31b6ef0a44f",
+  "parentId": null,
+  "position": 2,
+  "slug": "contact",
+  "uri": "contact",
+  "values": {
+    "seo": {
+      "image": null,
+      "title": "",
+      "description": "Send the Sorlo starter a message."
+    },
+    "slug": "contact",
+    "title": "Contact",
+    "blocks": [
+      {
+        "body": "## Get in touch\n\nA message sent here lands in the Contact form’s inbox in the admin. In development, the CMS’s terminal also prints the email an automation sends for it.",
+        "_layout": "text"
+      },
+      {
+        "form": "01a1ca0a-d2c4-720e-b5e8-5a81722b7c4e",
+        "_layout": "form",
+        "heading": "Send a message"
+      }
+    ]
+  },
+  "createdAt": "2026-11-11T09:57:49.437Z",
+  "updatedAt": "2026-11-11T09:57:49.437Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.437Z"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "01a1ca0a-d29c-7959-bb3e-e176b662c424",
+  "parentId": null,
+  "position": null,
+  "slug": null,
+  "uri": null,
+  "values": {
+    "bio": "Writes about publishing, and keeps the starter’s sample content in order.",
+    "name": "Robin Hale",
+    "avatar": "01a1ca0a-d275-7404-b07c-5a006b599c87"
+  },
+  "createdAt": "2026-11-11T09:57:49.342Z",
+  "updatedAt": "2026-11-11T09:57:49.342Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.342Z"
+  }
+}

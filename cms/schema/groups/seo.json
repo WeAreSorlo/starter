@@ -1,0 +1,31 @@
+{
+  "id": "grp_2xw38h7j",
+  "name": "seo",
+  "label": "SEO",
+  "fields": [
+    {
+      "id": "fld_ncy4ceye",
+      "type": "text",
+      "name": "title",
+      "label": "Title",
+      "instructions": "For search results and the browser's tab. The title, if it's empty.",
+      "options": { "maxLength": 60 }
+    },
+    {
+      "id": "fld_qyvn3wjt",
+      "type": "textarea",
+      "name": "description",
+      "label": "Description",
+      "instructions": "For search results and links shared on other sites.",
+      "options": { "rows": 2, "maxLength": 160 }
+    },
+    {
+      "id": "fld_zmaq5eui",
+      "type": "media",
+      "name": "image",
+      "label": "Share image",
+      "instructions": "For links shared on other sites.",
+      "options": { "maximum": 1, "types": ["image/*"] }
+    }
+  ]
+}

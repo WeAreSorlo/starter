@@ -1,0 +1,19 @@
+{
+  "id": "01a1ca0a-d2b1-7cb2-9b1f-92ffdcf35565",
+  "parentId": null,
+  "position": null,
+  "slug": null,
+  "uri": null,
+  "values": {
+    "bio": "Builds the site’s frontend, and writes about how it reads the CMS.",
+    "name": "Sam Okafor",
+    "avatar": "01a1ca0a-d289-7ead-8fe7-bfca0d4f2158"
+  },
+  "createdAt": "2026-11-11T09:57:49.364Z",
+  "updatedAt": "2026-11-11T09:57:49.364Z",
+  "archivedAt": null,
+  "takenDownAt": null,
+  "live": {
+    "publishedAt": "2026-11-11T09:57:49.364Z"
+  }
+}
