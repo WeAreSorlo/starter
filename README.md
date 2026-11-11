@@ -7,8 +7,6 @@ A small site on [Sorlo](https://github.com/WeAreSorlo/cms), the open-source, sch
 
 The sample content explains the starter from inside the site, so once it's running, its blog is a second guide.
 
-> **Until Sorlo is on npm,** the starter links the packages from clones beside it. [While the packages are linked](#while-the-packages-are-linked) says what that takes, and [When the packages are on npm](#when-the-packages-are-on-npm) how to switch.
-
 ## Getting started
 
 You need Node 22.18 or later, as the CMS does, though Node 24 is what its image runs and what flydrive asks for, and Postgres, which Docker can run for you.
@@ -149,30 +147,3 @@ npm run lint          # ESLint, with Next's rules
 npm run format        # Prettier
 npm run types -- --check  # with npm run dev running: fails when web/src/sorlo-types.d.ts is out of date
 ```
-
-## While the packages are linked
-
-Until `@sorlo/cms`, `@sorlo/sdk` and `@sorlo/forms` are on npm, the starter links them from clones beside it, as `../../cms/packages/cms`, `../../cms/packages/sdk` and `../../core` from each workspace:
-
-```
-cms/       WeAreSorlo/cms
-core/      WeAreSorlo/forms
-starter/   this repo
-```
-
-Install and build both clones first, and build again after pulling either, since the linked packages run what's in their `dist`:
-
-```bash
-(cd ../core && npm install && npm run build)
-(cd ../cms && npm install && npm run build)
-```
-
-The links need three things that go once the packages are published: `.npmrc`, which sends any lookup of a `@sorlo` package to an address that fails rather than to npm, `preserveSymlinks` in both `tsconfig.json` files, so the linked packages' types take this repo's copies of flydrive and React, and `turbopackAdditionalRoots` in `web/next.config.ts`, so Turbopack follows the links out of the repo. The CMS's image can't build while its packages are outside the repo.
-
-## When the packages are on npm
-
-1. In `cms/package.json`, `@sorlo/cms` becomes `^0.1.0`. In `web/package.json`, so do `@sorlo/sdk` and `@sorlo/forms`.
-2. Delete `.npmrc`, `preserveSymlinks` and its comment from `cms/tsconfig.json` and `web/tsconfig.json`, and `experimental.turbopackAdditionalRoots` from `web/next.config.ts`.
-3. Run `npm install`, and check that `npm run typecheck`, `npm run lint` and the image's build pass.
-4. Add CI that runs `npm run setup` against a Postgres service, starts the CMS, runs `npm run types -- --check` and builds `web/`, and Dependabot, to keep the starter on Sorlo's new releases.
-5. Make the repo a template on GitHub, under its settings.

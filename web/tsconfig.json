@@ -13,8 +13,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    // While the packages are linked from ../../cms and ../../core, so Sorlo Forms takes this project's React types
-    "preserveSymlinks": true,
     "plugins": [{ "name": "next" }],
     "paths": { "@/*": ["./src/*"] }
   },

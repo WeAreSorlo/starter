@@ -8,9 +8,7 @@
     "allowImportingTsExtensions": true,
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true,
-    "types": ["node"],
-    // While the packages are linked from ../../cms, so @sorlo/cms takes this project's flydrive
-    "preserveSymlinks": true
+    "types": ["node"]
   },
   "include": ["sorlo.config.ts", "migrations"]
 }

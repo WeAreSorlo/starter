@@ -2,7 +2,7 @@
 
 A Sorlo site: `cms/` is the CMS's site project, and `web/` is a Next.js site that reads it through the typed SDK. The [README](README.md) has the details, and this file the rules.
 
-Sorlo isn't in your training data. Before changing anything in `cms/`, or how `web/` reads the CMS, read the CMS's docs: [WeAreSorlo/cms/docs](https://github.com/WeAreSorlo/cms/tree/main/docs), or `../cms/docs/` while the packages are linked from a clone beside this repo. For Next.js, read [`web/AGENTS.md`](web/AGENTS.md), which Next writes, and leave that file as it is.
+Sorlo isn't in your training data. Before changing anything in `cms/`, or how `web/` reads the CMS, read the CMS's docs: `node_modules/@sorlo/cms/docs/`, which match the installed version, or [WeAreSorlo/cms/docs](https://github.com/WeAreSorlo/cms/tree/main/docs). For Next.js, read [`web/AGENTS.md`](web/AGENTS.md), which Next writes, and leave that file as it is.
 
 ## How the two fit together
 

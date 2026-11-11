@@ -12,13 +12,6 @@ const nextConfig: NextConfig = {
     // limits it to the CMS's media.
     dangerouslyAllowLocalIP: ['localhost', '127.0.0.1', '[::1]'].includes(cms.hostname),
   },
-  experimental: {
-    // While the packages are linked, so Turbopack follows the links out of this repo
-    turbopackAdditionalRoots: {
-      sdk: { path: '../../cms/packages/sdk' },
-      forms: { path: '../../core' },
-    },
-  },
 }
 
 export default nextConfig
