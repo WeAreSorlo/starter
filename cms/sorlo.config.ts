@@ -37,6 +37,7 @@ export default defineConfig({
     },
   },
   mail: mail(),
+  // ai: the admin's AI assistant, off until it has a provider, which npm create sorlo puts here when you choose one
   // Lets the revalidate webhook reach the site on this machine in development
   webhooks: production ? undefined : { allowNetworks: ['127.0.0.0/8', '::1'] },
   // The editor's Preview button, which opens an entry's saved draft on the site, once it has a secret for it
