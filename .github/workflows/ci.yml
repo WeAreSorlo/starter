@@ -46,6 +46,9 @@ jobs:
       # The env files, the migrations, the sample content and the site's keys, with secrets it makes itself
       - run: npm run setup
 
+      # The admin, which sorlo start serves
+      - run: npm run build -w cms
+
       # The server production runs, left running for the steps below, with its log for the last step
       - id: cms
         run: npm run start -w cms > cms.log 2>&1 &

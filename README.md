@@ -125,6 +125,8 @@ Build its image from the repo's root, where the lockfile is:
 docker build -f cms/Dockerfile -t example-cms .
 ```
 
+The image builds the admin with `sorlo build`, so it has the plugins `sorlo.config.ts` lists. To run the CMS as production does on your machine, run `npm run build -w cms` first, then `npm run start -w cms`.
+
 - **Each deploy runs the migrations** before it takes traffic, from the new image, such as in Fly's `release_command` or Render's pre-deploy command: `../node_modules/.bin/sorlo migrate`. It exits 1 when a migration has a TODO left or fails, which stops the deploy.
 - **The host provides** Postgres 17 as `DATABASE_URL`, HTTPS in front that sends `X-Forwarded-Proto`, `GET /health` as its health check, and a stop grace of 40 seconds, so a webhook in flight can finish. The CMS's [deploying page](https://github.com/WeAreSorlo/cms/blob/main/docs/deploying.md) has the details, and what to do behind a CDN.
 - **Media goes to a bucket** once `S3_BUCKET` is set, with `S3_REGION`, `S3_KEY` and `S3_SECRET`, and `S3_ENDPOINT` for R2, MinIO and other services that speak S3. The bucket stays private, since the CMS serves every file itself. Without a bucket, files go to `/site/cms/storage`, which needs a volume and limits the CMS to one instance.
@@ -159,6 +161,6 @@ npm run format        # Prettier
 npm run types -- --check  # with npm run dev running: fails when web/src/sorlo-types.d.ts is out of date
 ```
 
-CI, in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), runs all four on every push to `main` and every pull request: `npm ci` and the first three, then `npm run setup` against a Postgres 17 service, `npm run start -w cms` in the background, the types check, and a build of `web/` against the CMS, with the sample content. Setup makes the secrets and keys, so the repo needs none.
+CI, in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), runs all four on every push to `main` and every pull request: `npm ci` and the first three, then `npm run setup` against a Postgres 17 service, `npm run build -w cms` for the admin, `npm run start -w cms` in the background, the types check, and a build of `web/` against the CMS, with the sample content. Setup makes the secrets and keys, so the repo needs none.
 
 [Dependabot](.github/dependabot.yml) offers updates weekly, with Sorlo's packages together in one pull request, so each release of Sorlo arrives as one change for CI to check.

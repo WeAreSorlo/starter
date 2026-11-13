@@ -12,6 +12,8 @@ RUN npm ci --omit=dev --workspace cms --no-audit --no-fund
 COPY cms cms
 
 WORKDIR /site/cms
+# The admin, with the plugins sorlo.config.ts lists, which sorlo start serves
+RUN ../node_modules/.bin/sorlo build
 # The local disk's folder, for a deploy without a bucket, which a volume keeps
 RUN mkdir -p storage && chown node:node storage
 USER node
